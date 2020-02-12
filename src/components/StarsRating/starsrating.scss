@@ -1,0 +1,27 @@
+.starsWrap {
+  display: inline-flex;
+  margin: 0.6em 0em;
+  //   align-items: center;
+}
+.ratingCount {
+  font-size: 0.9em;
+  margin-left: 0.3em;
+}
+.starWrap {
+  position: relative;
+}
+.star {
+  color: lightgray;
+}
+.starInnerWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.starInner {
+  color: orange;
+  //   position: absolute;
+}
+.starsFilled {
+  color: orange;
+}

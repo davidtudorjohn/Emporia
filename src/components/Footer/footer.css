@@ -1,0 +1,53 @@
+#footerWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 40vh;
+  background-color: whitesmoke;
+  padding: 0vh 7vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footerColumn {
+  padding-top: 2em;
+  display: inline-block;
+  min-width: 20vw;
+}
+
+.footerLink {
+  position: relative;
+  display: block;
+  margin-top: 0.6em;
+}
+
+.footerMenuTitle {
+  margin-bottom: 0.6em;
+}
+
+#logoFooter {
+  font-family: "Georgia";
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  #footerWrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,18 @@
+#discountBanner {
+  z-index: 10;
+  position: absolute;
+  width: 100vw;
+  padding: 0.3em 12vw;
+  text-align: center;
+  background-color: slateblue;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+#closeBanner {
+  position: absolute;
+  right: 7vw;
+  background-color: transparent;
+  border: none;
+  color: white;
+}

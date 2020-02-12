@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACP,UAAU,EAAE,IAAI;EAChB,MAAM,EAAE,OAAO;EACf,SAAS,EAAE,KAAK;CACjB;;AACD,AAAA,WAAW,CAAC;EACV,MAAM,EAAE,OAAO;CAChB",
+    "sources": [
+        "navitem.scss"
+    ],
+    "names": [],
+    "file": "navitem.css"
+}

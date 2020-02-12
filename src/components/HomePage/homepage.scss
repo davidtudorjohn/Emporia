@@ -1,0 +1,16 @@
+#productList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 90vw;
+  padding: 5em 0em;
+}
+@media screen and (min-width: 768px) {
+  #productList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+  }
+}

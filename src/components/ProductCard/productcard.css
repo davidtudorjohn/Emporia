@@ -1,0 +1,49 @@
+.productCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 320px;
+  max-width: 320px;
+  margin: 0em 1em;
+}
+
+.productImage {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 320px;
+  max-height: 320px;
+  border: solid 1px #bebebe50;
+  padding: 0.6em;
+}
+
+.productName {
+  padding: 0.4em 0em 0em 0em;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.productPrice {
+  padding: 0em 0em 0.4em 0em;
+}
+
+.addToCart {
+  margin: 0em 0em 5em 0em;
+  background-color: slateblue;
+  color: white;
+  border: none;
+  font-weight: 600;
+  border-radius: 0.3em;
+  padding: 0.6em 1.2em;
+}
+/*# sourceMappingURL=productcard.css.map */

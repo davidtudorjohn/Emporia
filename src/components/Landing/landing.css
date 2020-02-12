@@ -1,0 +1,60 @@
+#landing {
+  width: 100vw;
+  position: relative;
+  background-image: url(https://images.unsplash.com/photo-1580916883250-437bcb0fec1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: white;
+  height: calc(100vh - 100px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 0;
+}
+
+#landing h1 {
+  color: white;
+  font-size: 3.6em;
+  padding: 0em 2em;
+  text-align: center;
+  margin-bottom: 0.6em;
+  letter-spacing: -0.04em;
+}
+
+#landingBtn {
+  color: white;
+  background-color: slateblue;
+  border: solid 1px white;
+  border-radius: 0.3em;
+  padding: 0.6em 1.2em;
+  font-weight: 600;
+}
+
+#landing > * {
+  z-index: 10;
+}
+
+#landing::after {
+  content: "";
+  z-index: 0;
+  background-color: #3f3483;
+  background: -webkit-gradient(linear, left top, right top, from(#3b0777), to(slateblue));
+  background: linear-gradient(to right, #3b0777, slateblue);
+  opacity: 0.9;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=landing.css.map */

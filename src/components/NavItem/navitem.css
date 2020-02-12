@@ -1,0 +1,10 @@
+.navItem {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.mobileMenu {
+  margin: 2em 0em;
+}
+/*# sourceMappingURL=navitem.css.map */

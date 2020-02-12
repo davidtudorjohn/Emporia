@@ -1,0 +1,171 @@
+#header {
+  z-index: 999;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+
+  height: 100px;
+  box-shadow: #00000030 0.2em 0.23em 0.2em;
+}
+#header > nav {
+  display: flex;
+  flex-direction: row;
+  // justify-content: center;
+  align-items: center;
+}
+#logoHeader {
+  font-family: "Georgia";
+  position: absolute;
+  left: 7vw;
+  line-height: 100px;
+}
+#mobileHeaderContent {
+  height: 100px;
+  display: flex;
+  position: absolute;
+  right: 7vw;
+  justify-content: center;
+  align-items: center;
+}
+#mobileMenu {
+  // position: absolute;
+  // line-height: 100px;
+  // right: 7vw;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  margin-left: 0.6em;
+}
+#mobileMenuContent {
+  border-top: solid 1px #bebebe70;
+
+  padding: 1em 0em;
+  z-index: 99;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: 100vw;
+  background-color: whitesmoke;
+  box-shadow: #00000030 0.2em 0.23em 0.2em;
+  // transform: translateY(-150%);
+  transition: transform 0.4s ease-in-out;
+}
+#mobileSubMenuContent {
+  padding: 1em 0em;
+
+  border-bottom: solid 1px #bebebe70;
+}
+#mobileSubMenuToggle {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  // display: flex;
+  align-items: center;
+}
+.mobileSubMenuItem {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.6em;
+  font-size: 0.9em;
+}
+.mobileSubMenuItem > p {
+  margin-left: 0.6em;
+}
+.mobileItemIcon {
+  margin: 0.6em 0em;
+  color: #00000050;
+}
+.open {
+  transform: translateY(0%);
+}
+.closed {
+  transform: translateY(-120%);
+}
+
+#navList {
+  display: none;
+  // max-width: 70vw;
+  // word-wrap: unset;
+}
+.routerLink {
+  text-decoration: none;
+  color: black;
+}
+#navList > .routerLink {
+  margin-left: 2em;
+  font-weight: 500;
+}
+
+#mainMenuToggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-left: 2em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+#menuChevron {
+  margin-left: 0.6em;
+  font-weight: 500;
+  font-size: 0.6em;
+}
+#mainMenu {
+  width: 100vw;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  padding: 0em 2em;
+  top: 100px;
+  left: 0;
+  min-height: 20vh;
+  border-top: solid 1px #bebebe;
+  border-bottom: solid 1px #bebebe;
+  background-color: whitesmoke;
+  box-shadow: #00000030 0.2em 0.23em 0.2em;
+}
+#mainMenuHeading {
+  font-size: 0.8em;
+  position: absolute;
+  left: 7vw;
+  top: 1em;
+}
+.mainMenuItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 0.9em;
+}
+.mainMenuItem > p {
+  margin-top: 0.6em;
+}
+.menuItemIcon {
+  font-size: 2em;
+  color: #00000050;
+}
+#closeMenuBtn {
+  border: none;
+  background: transparent;
+}
+@media screen and (min-width: 768px) {
+  // #mobileMenu {
+  //   display: none;
+  // }
+  #mobileMenuContent {
+    display: none;
+  }
+  #mobileHeaderContent {
+    display: none;
+  }
+  #navList {
+    display: flex;
+    position: absolute;
+    right: 7vw;
+  }
+}

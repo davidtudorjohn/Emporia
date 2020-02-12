@@ -1,0 +1,40 @@
+#emailListWrap {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 30vh;
+  justify-content: center;
+  align-items: center;
+  background-color: slateblue;
+  background: linear-gradient(
+    to right,
+    rgb(66, 8, 100),
+    slateblue,
+    rgb(66, 8, 100)
+  );
+}
+#emailListHeading {
+  padding: 0em 2em 0.6em 2em;
+  text-align: center;
+  color: white;
+}
+#emailListForm {
+  display: inline;
+}
+#emailListInput {
+  padding: 0.6em 1.2em;
+  border: none;
+}
+#emailListSubmit {
+  color: white;
+  padding: 0.6em 1.2em;
+  border: solid 1px white;
+  border-radius: 0.3em;
+  background-color: rgb(106, 80, 255);
+  font-weight: 600;
+  margin-left: 0.3em;
+}
+@media screen and (min-width: 768px) {
+  #emailListForm {
+  }
+}

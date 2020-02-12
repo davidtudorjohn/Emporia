@@ -1,0 +1,60 @@
+.productPageMain {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  min-height: 90vh;
+  justify-content: center;
+  align-items: center;
+}
+.productPageImage {
+  margin: 1em 0em 2em 0em;
+  max-width: 90vw;
+  border: solid 1px #bebebe50;
+  padding: 0.6em;
+}
+.productPageDetails {
+  padding: 0em;
+  min-width: 86vw;
+  max-width: 86vw;
+}
+.productPageName {
+}
+.productPagePrice {
+  margin-bottom: 0.6em;
+}
+.productPath {
+  margin-top: 2em;
+  margin-left: 7vw;
+}
+.reviewsWrap {
+  margin: 0vh 7vw;
+  padding-bottom: 2em;
+}
+@media screen and (min-width: 768px) {
+  .productPageMain {
+    display: flex;
+    // position: relative;
+
+    flex-direction: row;
+    width: 100vw;
+    min-height: 90vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .productPageImage {
+    // position: absolute;
+    // top: 10vh;
+    // left: 7vw;
+    max-width: 36vw;
+    margin-left: 7vw;
+  }
+  .productPageDetails {
+    // position: absolute;
+    // top: 10vh;
+    // left: 50vw;
+    padding: 2em 0em;
+    min-width: 40vw;
+    max-width: 40vw;
+  }
+}

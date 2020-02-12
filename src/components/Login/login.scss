@@ -1,0 +1,37 @@
+#loginWrap {
+  min-height: calc(100vh - 100px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -3em;
+}
+#loginForm {
+  display: flex;
+  padding: 2em;
+  border: solid 1px #bebebe;
+  flex-direction: column;
+}
+#loginForm > h2 {
+  margin-bottom: 1em;
+}
+.formInput {
+  padding: 1em 1.3em;
+  border: solid 1px slateblue;
+  margin: 0 auto;
+  // width: 100%;
+}
+#loginBtn {
+  color: white;
+  background-color: slateblue;
+  padding: 0.6em 2.6em;
+  min-width: 100%;
+  margin: 1em 0em;
+  border: none;
+}
+#orRegister {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: slateblue;
+}

@@ -1,0 +1,41 @@
+#shopPage {
+  padding: 5em 0em;
+  display: block;
+  min-height: 70vh;
+  max-width: 100vw;
+}
+
+#col1,
+#col2 {
+  min-width: 100vw;
+  max-width: 100vw;
+}
+
+@media screen and (min-width: 768px) {
+  #shopPage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #col1,
+  #col2 {
+    min-width: 40vw;
+    max-width: 40vw;
+  }
+  #col2 {
+    margin-left: -3em;
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  #col2 {
+    margin-left: -12em;
+  }
+}
+/*# sourceMappingURL=shoppage.css.map */

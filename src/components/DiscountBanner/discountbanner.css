@@ -1,0 +1,24 @@
+#discountBanner {
+  z-index: 10;
+  position: absolute;
+  width: 100vw;
+  padding: 0.3em 12vw;
+  text-align: center;
+  background-color: slateblue;
+  color: white;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#closeBanner {
+  position: absolute;
+  right: 7vw;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+/*# sourceMappingURL=discountbanner.css.map */

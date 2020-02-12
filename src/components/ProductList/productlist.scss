@@ -1,0 +1,40 @@
+.productsWrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 1em 0em;
+  min-height: 30vh;
+}
+.pageTitle {
+  letter-spacing: -0.05em;
+  margin-left: 7vw;
+  margin-top: 2em;
+}
+#searchForm {
+  display: flex;
+  min-width: 80vw;
+  padding: 1em 0em 1em 0em;
+}
+#searchForm > input {
+  padding: 0.6em 2em;
+  border-radius: 5em;
+  border: solid 1px #bebebe;
+  min-width: 60vw;
+  &:focus {
+    border: solid 1px #4284fb;
+    outline: none;
+  }
+}
+@media screen and (min-width: 768px) {
+  .productsWrap {
+    flex-direction: row;
+  }
+  #searchForm {
+    min-width: 30vw;
+  }
+  #searchForm > input {
+    min-width: 30vw;
+  }
+}

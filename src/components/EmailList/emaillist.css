@@ -1,0 +1,46 @@
+#emailListWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100vw;
+  min-height: 30vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: slateblue;
+  background: -webkit-gradient(linear, left top, right top, from(#420864), color-stop(slateblue), to(#420864));
+  background: linear-gradient(to right, #420864, slateblue, #420864);
+}
+
+#emailListHeading {
+  padding: 0em 2em 0.6em 2em;
+  text-align: center;
+  color: white;
+}
+
+#emailListForm {
+  display: inline;
+}
+
+#emailListInput {
+  padding: 0.6em 1.2em;
+  border: none;
+}
+
+#emailListSubmit {
+  color: white;
+  padding: 0.6em 1.2em;
+  border: solid 1px white;
+  border-radius: 0.3em;
+  background-color: #6a50ff;
+  font-weight: 600;
+  margin-left: 0.3em;
+}
+/*# sourceMappingURL=emaillist.css.map */

@@ -1,0 +1,37 @@
+#aboutBanner {
+  background-image: url("https://images.unsplash.com/photo-1562741665-50c9e0187e82?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1564&q=80");
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  max-height: 60vh;
+  width: 100vw;
+}
+
+#mission {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 0em 2em;
+}
+
+#familyBanner {
+  background-image: url("https://images.unsplash.com/photo-1487795924438-a3cb4b7a5556?ixlib=rb-1.2.1&auto=format&fit=crop&w=1510&q=80");
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  max-height: 60vh;
+  width: 100vw;
+}
+/*# sourceMappingURL=aboutpage.css.map */

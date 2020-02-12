@@ -1,0 +1,56 @@
+#loginWrap {
+  min-height: calc(100vh - 100px);
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: -3em;
+}
+
+#loginForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 2em;
+  border: solid 1px #bebebe;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#loginForm > h2 {
+  margin-bottom: 1em;
+}
+
+.formInput {
+  padding: 1em 1.3em;
+  border: solid 1px slateblue;
+  margin: 0 auto;
+}
+
+#loginBtn {
+  color: white;
+  background-color: slateblue;
+  padding: 0.6em 2.6em;
+  min-width: 100%;
+  margin: 1em 0em;
+  border: none;
+}
+
+#orRegister {
+  font-size: 0.9em;
+  font-weight: 600;
+  color: slateblue;
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,44 @@
+.category {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  padding: 2em 1em;
+  border: solid 1px slateblue;
+  border-radius: 0.3em;
+  max-width: 80vw;
+  &:hover {
+    background-color: #bebebe50;
+  }
+}
+.cat {
+  max-width: 80vw;
+}
+.routerLink:focus > .category {
+  background-color: #bebebe50;
+}
+
+.arrow {
+  position: absolute;
+  right: 1em;
+}
+@media screen and (min-width: 768px) {
+  .category {
+    max-width: 40vw;
+    min-width: 40vw;
+  }
+}
+@media screen and (min-width: 1080px) {
+  .category,
+  .cat {
+    max-width: 40vw;
+    min-width: 40vw;
+  }
+}
+@media screen and (min-width: 1260px) {
+  .category,
+  .cat {
+    max-width: 30vw;
+    min-width: 30vw;
+  }
+}
