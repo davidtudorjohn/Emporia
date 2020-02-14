@@ -12,7 +12,6 @@ import ProbioticsPage from "./components/ProbioticsPage";
 import MensHealthPage from "./components/MensHealthPage";
 import ChildrensHealthPage from "./components/ChildrensHealthPage";
 import HolisticPage from "./components/HolisticPage";
-// import AllProductsPage from "./components/AllProductsPage";
 import ProductPage from "./components/ProductPage";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -20,13 +19,23 @@ import AboutPage from "./components/AboutPage";
 import PrivacyPage from "./components/PrivacyPage";
 import TermsPage from "./components/TermsPage";
 import AllProducstsPage from "./components/AllProductsPage";
+import NewArrivalsPage from "./components/NewArrivalsPage";
+import Account from "./components/Account";
+import { useSelector, useDispatch } from "react-redux";
+import { logIn } from "./actions";
 function App() {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(state => state.isLoggedIn);
+  if (localStorage.getItem("auth-token")) {
+    dispatch(logIn());
+  }
   return (
     <Router>
       <div className="App">
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
+          <Route exact path="/account" component={Account} />
           <Route exact path="/about" component={AboutPage} />
           <Route exact path="/shop" component={ShopPage} />
           <Route
@@ -43,6 +52,7 @@ function App() {
             component={ChildrensHealthPage}
           />
           <Route exact path="/shop/all-products" component={AllProducstsPage} />
+          <Route exact path="/shop/new-arrivals" component={NewArrivalsPage} />
           <Route exact path="/shop/holistic" component={HolisticPage} />
           <Route exact path="/shop/:id" component={ProductPage} />
           <Route exact path="/cart" component={CartPage} />

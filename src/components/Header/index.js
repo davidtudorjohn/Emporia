@@ -16,16 +16,18 @@ import {
 import "./header.css";
 import NavItem from "../NavItem";
 import { useSelector } from "react-redux";
+import ShopMenuItem from "../ShopMenuItem";
 const Header = () => {
-  const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
+  const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileSubMenuOpen, setIsMobileSubMenuOpen] = useState(false);
+  const [isMobileShopMenu, setIsMobileShopMenuOpen] = useState(false);
+  const isLoggedIn = useSelector(state => state.isLoggedIn);
   const closeMenu = () => {
-    setIsMainMenuOpen(false);
+    setIsShopMenuOpen(false);
   };
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-    setIsMobileSubMenuOpen(false);
+    setIsMobileShopMenuOpen(false);
   };
   const cart = useSelector(state => state.cart);
   let cartCount = 0;
@@ -42,122 +44,89 @@ const Header = () => {
         </h1>
         <nav>
           <ul id="navList">
-            <Link onClick={closeMenu} className="routerLink" to="/new-arrivals">
-              <NavItem content="New Arrivals" />
-            </Link>
+            <NavItem
+              onClick={closeMenu}
+              to="/shop/new-arrivals"
+              content="New Arrivals"
+            />
+
             <button
-              id="mainMenuToggle"
+              id="shopMenuToggle"
               className="routerLink"
-              onMouseOver={() => setIsMainMenuOpen(true)}
-              onClick={() => setIsMainMenuOpen(!isMainMenuOpen)}
+              onMouseOver={() => setIsShopMenuOpen(true)}
+              onClick={() => setIsShopMenuOpen(!isShopMenuOpen)}
             >
               Shop{" "}
-              {isMainMenuOpen ? (
+              {isShopMenuOpen ? (
                 <FontAwesomeIcon id="menuChevron" icon={faChevronUp} />
               ) : (
                 <FontAwesomeIcon id="menuChevron" icon={faChevronDown} />
               )}
             </button>
-            <Link onClick={closeMenu} className="routerLink" to="/about">
-              <NavItem content="About" />
-            </Link>
-            <Link onClick={closeMenu} className="routerLink" to="/rewards">
-              <NavItem content="Rewards" />
-            </Link>
-            <Link onClick={closeMenu} className="routerLink" to="/login">
-              <NavItem class="login" content="Log In" />
-            </Link>
-            <Link onClick={closeMenu} className="routerLink" to="/register">
-              <NavItem class="register" content="Register" />
-            </Link>
-            <Link onClick={closeMenu} className="routerLink" to="/cart">
-              <NavItem
-                content=""
-                icon={faShoppingCart}
-                cart={cart.length > 0 ? cartCount : ""}
-              />
-            </Link>
+
+            <NavItem onClick={closeMenu} to="/about" content="About" />
+
+            {isLoggedIn ? (
+              <NavItem onClick={closeMenu} to="/account" content="Account" />
+            ) : (
+              <>
+                <NavItem onClick={closeMenu} to="/login" content="Log In" />
+                <NavItem
+                  onClick={closeMenu}
+                  to="/register"
+                  content="Register"
+                />
+              </>
+            )}
+
+            <NavItem
+              onClick={closeMenu}
+              to="/cart"
+              content=""
+              icon={faShoppingCart}
+              cart={cart.length > 0 ? cartCount : ""}
+            />
           </ul>
-          {isMainMenuOpen && (
-            <div id="mainMenu" onMouseLeave={closeMenu}>
-              <h3 id="mainMenuHeading">Shop by Category</h3>
-              <Link
+          {isShopMenuOpen && (
+            <div id="shopMenu" onMouseLeave={closeMenu}>
+              <h3 id="shopMenuHeading">Shop by Category</h3>
+
+              <ShopMenuItem
                 onClick={closeMenu}
-                className="routerLink"
                 to="/shop/vitamins-supplements"
-              >
-                <div className="mainMenuItem">
-                  <FontAwesomeIcon
-                    className="menuItemIcon"
-                    icon={faPrescriptionBottleAlt}
-                  />
-                  <p>Vitamins & Supplements</p>
-                </div>
-              </Link>
-              <Link
+                icon={faPrescriptionBottleAlt}
+                content="Vitamins & Supplements"
+              />
+              <ShopMenuItem
                 onClick={closeMenu}
-                className="routerLink"
                 to="/shop/skin-care"
-              >
-                <div className="mainMenuItem">
-                  <FontAwesomeIcon className="menuItemIcon" icon={faHands} />
-                  <p>Skin Care</p>
-                </div>
-              </Link>
-              <Link
+                icon={faHands}
+                content="Skin Care"
+              />
+              <ShopMenuItem
                 onClick={closeMenu}
-                className="routerLink"
                 to="/shop/probiotics"
-              >
-                <div className="mainMenuItem">
-                  <FontAwesomeIcon
-                    className="menuItemIcon"
-                    icon={faMortarPestle}
-                  />
-                  <p>Probiotics</p>
-                </div>
-              </Link>
-              <Link
+                icon={faMortarPestle}
+                content="Probiotics"
+              />
+              <ShopMenuItem
                 onClick={closeMenu}
-                className="routerLink"
                 to="/shop/mens-health"
-              >
-                <div className="mainMenuItem">
-                  <FontAwesomeIcon
-                    className="menuItemIcon"
-                    icon={faPrescription}
-                  />
-                  <p>Men's Health</p>
-                </div>
-              </Link>
-              <Link
+                icon={faPrescription}
+                content="Men's Health"
+              />
+              <ShopMenuItem
                 onClick={closeMenu}
-                className="routerLink"
                 to="/shop/childrens-health"
-              >
-                <div className="mainMenuItem">
-                  <FontAwesomeIcon
-                    className="menuItemIcon"
-                    icon={faCookieBite}
-                  />
-                  <p>Children's Health</p>
-                </div>
-              </Link>
-              <Link
+                icon={faCookieBite}
+                content="Children's Health"
+              />
+              <ShopMenuItem
                 onClick={closeMenu}
-                className="routerLink"
                 to="/shop/holistic"
-              >
-                <div className="mainMenuItem">
-                  <FontAwesomeIcon className="menuItemIcon" icon={faTree} />
-                  <p>Holistic</p>
-                </div>
-              </Link>
-              {/* <div>Skin Care</div>
-            <div>Mens Health</div>
-            <div>Holistic</div>
-            <div>Probiotics</div>
-            <div>Childrens Health</div> */}
+                icon={faTree}
+                content="Holistic"
+              />
               <button id="closeMenuBtn" onClick={closeMenu}>
                 <FontAwesomeIcon icon={faChevronCircleUp} />
               </button>
@@ -165,13 +134,13 @@ const Header = () => {
           )}
         </nav>
         <div id="mobileHeaderContent">
-          <Link onClick={closeMobileMenu} className="routerLink" to="/cart">
-            <NavItem
-              content=""
-              icon={faShoppingCart}
-              cart={cart.length > 0 ? cartCount : ""}
-            />
-          </Link>
+          <NavItem
+            onClick={closeMobileMenu}
+            to="/cart"
+            content=""
+            icon={faShoppingCart}
+            cart={cart.length > 0 ? cartCount : ""}
+          />
           <button
             id="mobileMenu"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -187,165 +156,112 @@ const Header = () => {
         >
           <nav>
             <ul>
-              <Link
-                onClick={closeMobileMenu}
-                className="routerLink "
+              <NavItem
                 to="/new-arrivals"
-              >
-                <NavItem class="mobileMenu" content="New Arrivals" />
-              </Link>
+                onClick={closeMobileMenu}
+                class="mobileMenu"
+                content="New Arrivals"
+              />
+
               <button
-                id="mobileSubMenuToggle"
+                id="mobileShopMenuToggle"
                 className="routerLink"
-                // onMouseOver={() => setIsMobileSubMenuOpen(true)}
-                onClick={() => setIsMobileSubMenuOpen(!isMobileSubMenuOpen)}
+                // onMouseOver={() => setIsMobileShopMenuOpen(true)}
+                onClick={() => setIsMobileShopMenuOpen(!isMobileShopMenu)}
               >
                 Shop{" "}
-                {isMobileSubMenuOpen ? (
+                {isMobileShopMenu ? (
                   <FontAwesomeIcon id="menuChevron" icon={faChevronUp} />
                 ) : (
                   <FontAwesomeIcon id="menuChevron" icon={faChevronDown} />
                 )}
               </button>
 
-              {isMobileSubMenuOpen ? (
-                <div id="mobileSubMenuContent">
-                  {/* <div id="mainMenu" onMouseLeave={closeMenu}>
-                    <h3 id="mainMenuHeading">Shop by Category</h3> */}
-                  <Link
+              {isMobileShopMenu ? (
+                <div id="mobileShopMenuContent">
+                  <ShopMenuItem
                     onClick={closeMobileMenu}
-                    className="routerLink"
-                    to="/shop/all-products"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faPrescriptionBottleAlt}
-                      />
-                      <p>All Products</p>
-                    </div>
-                  </Link>
-                  <br />
-                  <Link
-                    onClick={closeMobileMenu}
-                    className="routerLink"
                     to="/shop/vitamins-supplements"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faPrescriptionBottleAlt}
-                      />
-                      <p>Vitamins & Supplements</p>
-                    </div>
-                  </Link>
+                    icon={faPrescriptionBottleAlt}
+                    content="Vitamins & Supplements"
+                    mobile={true}
+                  />
                   <br />
-                  <Link
+                  <ShopMenuItem
                     onClick={closeMobileMenu}
-                    className="routerLink"
                     to="/shop/skin-care"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faHands}
-                      />
-                      <p>Skin Care</p>
-                    </div>
-                  </Link>
+                    icon={faHands}
+                    content="Skin Care"
+                    mobile={true}
+                  />
                   <br />
-
-                  <Link
+                  <ShopMenuItem
                     onClick={closeMobileMenu}
-                    className="routerLink"
                     to="/shop/probiotics"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faMortarPestle}
-                      />
-                      <p>Probiotics</p>
-                    </div>
-                  </Link>
+                    icon={faMortarPestle}
+                    content="Probiotics"
+                    mobile={true}
+                  />
                   <br />
-
-                  <Link
+                  <ShopMenuItem
                     onClick={closeMobileMenu}
-                    className="routerLink"
                     to="/shop/mens-health"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faPrescription}
-                      />
-                      <p>Men's Health</p>
-                    </div>
-                  </Link>
+                    icon={faPrescription}
+                    content="Men's Health"
+                    mobile={true}
+                  />
                   <br />
-
-                  <Link
+                  <ShopMenuItem
                     onClick={closeMobileMenu}
-                    className="routerLink"
                     to="/shop/childrens-health"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faCookieBite}
-                      />
-                      <p>Children's Health</p>
-                    </div>
-                  </Link>
+                    icon={faCookieBite}
+                    content="Children's Health"
+                    mobile={true}
+                  />
                   <br />
-
-                  <Link
+                  <ShopMenuItem
                     onClick={closeMobileMenu}
-                    className="routerLink"
                     to="/shop/holistic"
-                  >
-                    <div className="mobileSubMenuItem">
-                      <FontAwesomeIcon
-                        className="mobileItemIcon"
-                        icon={faTree}
-                      />
-                      <p>Holistic</p>
-                    </div>
-                  </Link>
+                    icon={faTree}
+                    content="Holistic"
+                    mobile={true}
+                  />
+                  <br />
                 </div>
               ) : (
-                // </div>
                 ""
               )}
-              <Link
+
+              <NavItem
                 onClick={closeMobileMenu}
-                className="routerLink"
                 to="/about"
-              >
-                <NavItem class="mobileMenu" content="About" />
-              </Link>
-              <Link
-                onClick={closeMobileMenu}
-                className="routerLink"
-                to="/rewards"
-              >
-                <NavItem class="mobileMenu" content="Rewards" />
-              </Link>
-              <Link
-                onClick={closeMobileMenu}
-                className="routerLink"
-                to="/login"
-              >
-                <NavItem class="mobileMenu" class="login" content="Log In" />
-              </Link>
-              <Link
-                onClick={closeMobileMenu}
-                className="routerLink"
-                to="/register"
-              >
-                <NavItem class="mobileMenu register" content="Register" />
-              </Link>
+                class="mobileMenu"
+                content="About"
+              />
+
+              {isLoggedIn ? (
+                <NavItem
+                  onClick={closeMobileMenu}
+                  to="/account"
+                  content="Account"
+                />
+              ) : (
+                <>
+                  <NavItem
+                    onClick={closeMobileMenu}
+                    to="/login"
+                    class="mobileMenu"
+                    class="login"
+                    content="Log In"
+                  />
+                  <NavItem
+                    onClick={closeMobileMenu}
+                    to="/register"
+                    class="mobileMenu register"
+                    content="Register"
+                  />
+                </>
+              )}
             </ul>
           </nav>
         </div>

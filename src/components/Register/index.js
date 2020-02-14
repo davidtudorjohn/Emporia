@@ -5,9 +5,30 @@ const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleRegister = e => {
+  const handleRegister = async e => {
     e.preventDefault();
-    alert(`${name} ${email} ${password}`);
+    const user = {
+      name: `${name}`,
+      email: `${email}`,
+      password: `${password}`
+    };
+
+    await fetch("http://localhost:5000/api/user/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(user)
+    })
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          console.log("User registered successfully");
+        } else {
+          console.log("User registration failed");
+        }
+      })
+      .catch(err => console.log(err));
+
+    // alert(`${name} ${email} ${password}`);
   };
   return (
     <div id="registerWrap">

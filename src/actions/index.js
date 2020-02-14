@@ -4,3 +4,9 @@ export const addProduct = product => {
 export const removeProduct = product => {
   return { type: "REMOVE_PRODUCT", payload: product };
 };
+export const logIn = () => {
+  return { type: "LOG_IN" };
+};
+export const logOut = () => {
+  return { type: "LOG_OUT" };
+};
