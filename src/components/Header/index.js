@@ -154,7 +154,7 @@ const Header = () => {
                 isMobileShopMenuOpen={isMobileShopMenuOpen}
                 mobile={true}
               />
-              {isMobileShopMenuOpen ? (
+              {isMobileShopMenuOpen && (
                 <div id="mobileShopMenuContent">
                   <ShopMenuItem
                     onClick={closeMobileMenu}
@@ -205,10 +205,7 @@ const Header = () => {
                   />
                   <br />
                 </div>
-              ) : (
-                ""
               )}
-
               <NavItem
                 onClick={closeMobileMenu}
                 to="/about"
@@ -228,13 +225,12 @@ const Header = () => {
                     onClick={closeMobileMenu}
                     to="/login"
                     class="mobileMenu"
-                    class="login"
                     content="Log In"
                   />
                   <NavItem
                     onClick={closeMobileMenu}
                     to="/register"
-                    class="mobileMenu register"
+                    class="mobileMenu "
                     content="Register"
                   />
                 </>
