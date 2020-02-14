@@ -29,9 +29,6 @@
   align-items: center;
 }
 #mobileMenu {
-  // position: absolute;
-  // line-height: 100px;
-  // right: 7vw;
   border: none;
   background-color: transparent;
   font-size: 1em;
@@ -39,7 +36,6 @@
 }
 #mobileMenuContent {
   border-top: solid 1px #bebebe70;
-
   padding: 1em 0em 2em 0em;
   z-index: 99;
   position: absolute;
@@ -56,38 +52,14 @@
 
   border-bottom: solid 1px #bebebe70;
 }
-#mobileShopMenuToggle {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  // display: flex;
-  align-items: center;
-}
-.mobileShopMenuItem {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 0.6em;
-  font-size: 0.9em;
-}
-.mobileShopMenuItem > p {
-  margin-left: 0.6em;
-}
-.mobileShopItemIcon {
-  margin: 0.6em 0em;
-  color: #00000050;
-}
 .open {
   transform: translateY(0%);
 }
 .closed {
   transform: translateY(-120%);
 }
-
 #navList {
   display: none;
-  // max-width: 70vw;
-  // word-wrap: unset;
 }
 .routerLink {
   text-decoration: none;
@@ -96,22 +68,6 @@
 #navList > .routerLink {
   margin-left: 2em;
   font-weight: 500;
-}
-
-#shopMenuToggle {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  margin-left: 2em;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  font-size: 0.9em;
-}
-#menuChevron {
-  margin-left: 0.6em;
-  font-weight: 500;
-  font-size: 0.6em;
 }
 #shopMenu {
   width: 100vw;
@@ -136,19 +92,7 @@
   left: 7vw;
   top: 1em;
 }
-.shopMenuItem {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-size: 0.9em;
-}
-.shopMenuItem > p {
-  margin-top: 0.6em;
-}
-.shopItemIcon {
-  font-size: 2em;
-  color: #00000050;
-}
+
 #closeMenuBtn {
   border: none;
   background: transparent;

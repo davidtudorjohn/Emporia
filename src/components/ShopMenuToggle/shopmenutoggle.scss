@@ -1,0 +1,22 @@
+#shopMenuToggle {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-left: 2em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+#mobileShopMenuToggle {
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  // display: flex;
+  align-items: center;
+}
+#menuChevron {
+  margin-left: 0.6em;
+  font-weight: 500;
+  font-size: 0.6em;
+}

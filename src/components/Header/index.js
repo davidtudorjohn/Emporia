@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faChevronDown,
-  faChevronUp,
   faChevronCircleUp,
   faShoppingCart,
   faPrescriptionBottleAlt,
@@ -17,10 +15,11 @@ import "./header.css";
 import NavItem from "../NavItem";
 import { useSelector } from "react-redux";
 import ShopMenuItem from "../ShopMenuItem";
+import ShopMenuToggle from "../ShopMenuToggle";
 const Header = () => {
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobileShopMenu, setIsMobileShopMenuOpen] = useState(false);
+  const [isMobileShopMenuOpen, setIsMobileShopMenuOpen] = useState(false);
   const isLoggedIn = useSelector(state => state.isLoggedIn);
   const closeMenu = () => {
     setIsShopMenuOpen(false);
@@ -49,23 +48,12 @@ const Header = () => {
               to="/shop/new-arrivals"
               content="New Arrivals"
             />
-
-            <button
-              id="shopMenuToggle"
-              className="routerLink"
-              onMouseOver={() => setIsShopMenuOpen(true)}
+            <ShopMenuToggle
               onClick={() => setIsShopMenuOpen(!isShopMenuOpen)}
-            >
-              Shop{" "}
-              {isShopMenuOpen ? (
-                <FontAwesomeIcon id="menuChevron" icon={faChevronUp} />
-              ) : (
-                <FontAwesomeIcon id="menuChevron" icon={faChevronDown} />
-              )}
-            </button>
-
+              onMouseOver={() => setIsShopMenuOpen(true)}
+              isShopMenuOpen={isShopMenuOpen}
+            />
             <NavItem onClick={closeMenu} to="/about" content="About" />
-
             {isLoggedIn ? (
               <NavItem onClick={closeMenu} to="/account" content="Account" />
             ) : (
@@ -78,7 +66,6 @@ const Header = () => {
                 />
               </>
             )}
-
             <NavItem
               onClick={closeMenu}
               to="/cart"
@@ -162,22 +149,12 @@ const Header = () => {
                 class="mobileMenu"
                 content="New Arrivals"
               />
-
-              <button
-                id="mobileShopMenuToggle"
-                className="routerLink"
-                // onMouseOver={() => setIsMobileShopMenuOpen(true)}
-                onClick={() => setIsMobileShopMenuOpen(!isMobileShopMenu)}
-              >
-                Shop{" "}
-                {isMobileShopMenu ? (
-                  <FontAwesomeIcon id="menuChevron" icon={faChevronUp} />
-                ) : (
-                  <FontAwesomeIcon id="menuChevron" icon={faChevronDown} />
-                )}
-              </button>
-
-              {isMobileShopMenu ? (
+              <ShopMenuToggle
+                onClick={() => setIsMobileShopMenuOpen(!isMobileShopMenuOpen)}
+                isMobileShopMenuOpen={isMobileShopMenuOpen}
+                mobile={true}
+              />
+              {isMobileShopMenuOpen ? (
                 <div id="mobileShopMenuContent">
                   <ShopMenuItem
                     onClick={closeMobileMenu}

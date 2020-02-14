@@ -78,39 +78,6 @@
   border-bottom: solid 1px #bebebe70;
 }
 
-#mobileShopMenuToggle {
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.mobileShopMenuItem {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0.6em;
-  font-size: 0.9em;
-}
-
-.mobileShopMenuItem > p {
-  margin-left: 0.6em;
-}
-
-.mobileShopItemIcon {
-  margin: 0.6em 0em;
-  color: #00000050;
-}
-
 .open {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
@@ -133,27 +100,6 @@
 #navList > .routerLink {
   margin-left: 2em;
   font-weight: 500;
-}
-
-#shopMenuToggle {
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  margin-left: 2em;
-  font-weight: 500;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 0.9em;
-}
-
-#menuChevron {
-  margin-left: 0.6em;
-  font-weight: 500;
-  font-size: 0.6em;
 }
 
 #shopMenu {
@@ -186,29 +132,6 @@
   position: absolute;
   left: 7vw;
   top: 1em;
-}
-
-.shopMenuItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  font-size: 0.9em;
-}
-
-.shopMenuItem > p {
-  margin-top: 0.6em;
-}
-
-.shopItemIcon {
-  font-size: 2em;
-  color: #00000050;
 }
 
 #closeMenuBtn {
