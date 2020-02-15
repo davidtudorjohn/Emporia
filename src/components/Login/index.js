@@ -6,7 +6,7 @@ import { logIn } from "../../actions";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [logInSuccessMsg, setLogInSuccessMsg] = useState(false);
+  // const [logInSuccessMsg, setLogInSuccessMsg] = useState(false);
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isLoggedIn = useSelector(state => state.isLoggedIn);
   const dispatch = useDispatch();

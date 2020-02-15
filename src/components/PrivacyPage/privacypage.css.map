@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,cAAc,CAAC;EACb,MAAM,EAAE,OAAO;EACf,OAAO,EAAE,OAAO;EAChB,KAAK,EAAE,OAAO;EACd,SAAS,EAAE,KAAK;CACjB",
     "sources": [
         "privacypage.scss"
     ],

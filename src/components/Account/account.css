@@ -1,0 +1,24 @@
+#accountWrap {
+  min-width: 100vw;
+  padding: 0vh 7vw;
+  min-height: 100vh;
+}
+
+#accountHeading {
+  padding: 1em 0em;
+}
+
+#ordersSection {
+  max-width: 86vw;
+  min-height: 10vh;
+  border: solid 1px #bebebe80;
+  margin: 0em 0em 1em 0em;
+}
+
+#settingsSection {
+  max-width: 86vw;
+  min-height: 30vh;
+  border: solid 1px #bebebe80;
+  margin: 0em 0em 1em 0em;
+}
+/*# sourceMappingURL=account.css.map */

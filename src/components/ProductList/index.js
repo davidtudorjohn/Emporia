@@ -10,15 +10,15 @@ const ProductList = props => {
   });
 
   //   console.log(filteredItems);
-  const allProducts = [];
+  // let allProducts = [];
 
-  for (var category in data) {
-    let productsInCategory = data[category];
-    for (let i = 0; i < productsInCategory.length; i++) {
-      allProducts.push(productsInCategory[i]);
-    }
-  }
-  //   console.log(allProducts);
+  // for (var category in data) {
+  //   let productsInCategory = data[category];
+  //   for (let i = 0; i < productsInCategory.length; i++) {
+  //     allProducts.push(productsInCategory[i]);
+  //   }
+  // }
+  // console.log(allProducts);
 
   const handleQuery = e => {
     e.preventDefault();
@@ -35,14 +35,11 @@ const ProductList = props => {
             placeholder={`Search ${props.pageTitle}`}
             onChange={e => setQuery(e.target.value.toLowerCase())}
           />
-          {/* <input type="submit" for="searchForm" /> */}
         </form>
       )}
       <div className="productsWrap">
-        {filteredItems && filteredItems.length === 0 ? (
+        {props.dataCategory && filteredItems.length === 0 && (
           <h5>No products found</h5>
-        ) : (
-          ""
         )}
         {filteredItems && props.dataCategory
           ? filteredItems.map(p => (

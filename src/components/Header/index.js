@@ -144,7 +144,7 @@ const Header = () => {
           <nav>
             <ul>
               <NavItem
-                to="/new-arrivals"
+                to="/shop/new-arrivals"
                 onClick={closeMobileMenu}
                 class="mobileMenu"
                 content="New Arrivals"
@@ -156,6 +156,15 @@ const Header = () => {
               />
               {isMobileShopMenuOpen && (
                 <div id="mobileShopMenuContent">
+                  {/* <ShopMenuItem
+                    onClick={closeMobileMenu}
+                    to="/shop/all-products"
+                    icon={faPrescriptionBottleAlt}
+                    content="All Products"
+                    mobile={true}
+                    allProducts={true}
+                  />
+                  <br /> */}
                   <ShopMenuItem
                     onClick={closeMobileMenu}
                     to="/shop/vitamins-supplements"
