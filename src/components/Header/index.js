@@ -9,7 +9,8 @@ import {
   faPrescription,
   faTree,
   faMortarPestle,
-  faHands
+  faHands,
+  faPhone
 } from "@fortawesome/free-solid-svg-icons";
 import "./header.css";
 import NavItem from "../NavItem";
@@ -41,6 +42,15 @@ const Header = () => {
             Emporia
           </Link>
         </h1>
+        <div id="phoneBanner">
+          <h5>
+            Customer Support <FontAwesomeIcon id="phoneIcon" icon={faPhone} />{" "}
+            <span>
+              <a href="tel:1-888-777-9999">1-888-777-9999</a>
+            </span>
+          </h5>
+        </div>
+
         <nav>
           <ul id="navList">
             <NavItem

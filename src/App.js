@@ -25,7 +25,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logIn } from "./actions";
 function App() {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector(state => state.isLoggedIn);
+  // const isLoggedIn = useSelector(state => state.isLoggedIn);
   if (localStorage.getItem("auth-token")) {
     dispatch(logIn());
   }
