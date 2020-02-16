@@ -3,7 +3,6 @@ import "./login.css";
 import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logIn, setUser } from "../../actions";
-import { HandleLogin } from "../../functions/HandleLogin";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
