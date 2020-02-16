@@ -1,6 +1,5 @@
 import React from "react";
 import "./cartitem.css";
-
 const CartItem = props => {
   // const product = {
   //   id: props.id,
@@ -8,8 +7,11 @@ const CartItem = props => {
   //   price: props.price,
   //   quantity: props.quantity,
   //   image: props.image,
-  //   category: props.category
+  //   category: props.category,
+  //   rating: props.rating,
+  //   reviews: props.reviews
   // };
+
   return (
     <div className="cartItem">
       {/* <Link
@@ -19,15 +21,21 @@ const CartItem = props => {
       <img alt="" className="productThumbnail" src={props.image}></img>
       {/* </Link> */}
       <h4 className="cartProductName">{props.name}</h4>
-
       <div className="cartProductDetails">
         <h5 className="cartDetails">${props.price}</h5>
         <p className="cartDetails" id="quantity">
-          Quantity: {props.quantity}
+          Quantity:
         </p>
-        <button className="cartDetails remove" onClick={props.remove}>
-          Remove
-        </button>
+        <div>
+          {" "}
+          <button className="quantityBtn" onClick={props.remove}>
+            -
+          </button>{" "}
+          {props.quantity}{" "}
+          <button className="quantityBtn" onClick={props.add}>
+            +
+          </button>
+        </div>
       </div>
     </div>
   );

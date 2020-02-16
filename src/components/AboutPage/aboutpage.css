@@ -3,7 +3,6 @@
   background-size: cover;
   background-position: center;
   min-height: 80vh;
-  max-height: 80vh;
   width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -41,8 +40,8 @@
 }
 
 #aboutBanner > h1 {
-  font-size: 3em;
-  letter-spacing: -0.03em;
+  font-size: 3.6em;
+  letter-spacing: -0.04em;
 }
 
 #mission {
@@ -61,7 +60,7 @@
           align-items: center;
   min-height: 70vh;
   text-align: center;
-  padding: 1em 2em;
+  padding: 3em 2em;
 }
 
 #familyBanner {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
@@ -21,17 +21,46 @@ import TermsPage from "./components/TermsPage";
 import AllProducstsPage from "./components/AllProductsPage";
 import NewArrivalsPage from "./components/NewArrivalsPage";
 import Account from "./components/Account";
-import { useSelector, useDispatch } from "react-redux";
-import { logIn } from "./actions";
+import { useDispatch } from "react-redux";
+import { logIn, setUser, logOut } from "./actions";
+import ScrollToTop from "./components/ScrollToTop";
+import Checkout from "./components/Checkout";
 function App() {
   const dispatch = useDispatch();
   // const isLoggedIn = useSelector(state => state.isLoggedIn);
   if (localStorage.getItem("auth-token")) {
     dispatch(logIn());
   }
+
+  useEffect(() => {
+    async function verifyUser() {
+      console.log("effect running");
+      await fetch("http://localhost:5000/api/user/verify", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("auth-token")
+        }
+      }).then(res => {
+        console.log(res);
+        if (res.status !== 200) {
+          dispatch(logOut());
+        }
+        const userId = res.headers.get("_id");
+        localStorage.setItem("_id", userId);
+        console.log(userId);
+        if (res.status === 200) {
+          dispatch(logIn());
+          dispatch(setUser(userId));
+        }
+      });
+    }
+    verifyUser();
+  }, []);
   return (
     <Router>
       <div className="App">
+        <ScrollToTop />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -56,6 +85,7 @@ function App() {
           <Route exact path="/shop/holistic" component={HolisticPage} />
           <Route exact path="/shop/:id" component={ProductPage} />
           <Route exact path="/cart" component={CartPage} />
+          <Route exact path="/checkout" component={Checkout} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/privacy" component={PrivacyPage} />

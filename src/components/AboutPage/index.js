@@ -1,6 +1,5 @@
 import React from "react";
 import "./aboutpage.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBalanceScale,
   faMortarPestle,

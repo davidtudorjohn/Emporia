@@ -63,6 +63,11 @@
   font-size: 0.8em;
 }
 
+.quantityBtn {
+  border: solid 1px slateblue;
+  background-color: transparent;
+}
+
 @media screen and (min-width: 768px) {
   .cartItem {
     display: -webkit-box;

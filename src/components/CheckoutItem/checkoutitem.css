@@ -1,0 +1,24 @@
+.checkoutItem {
+  border: solid 1px #bebebe;
+  display: block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0.6em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0.3em;
+}
+
+.checkoutItemQuantity {
+  font-size: 0.8em;
+  color: #393939;
+}
+
+.checkoutItemPrice {
+  font-size: 0.8em;
+  color: #393939;
+}
+/*# sourceMappingURL=checkoutitem.css.map */

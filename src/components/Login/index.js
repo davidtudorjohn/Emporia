@@ -2,19 +2,19 @@ import React, { useState } from "react";
 import "./login.css";
 import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../../actions";
+import { logIn, setUser } from "../../actions";
+import { HandleLogin } from "../../functions/HandleLogin";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [logInSuccessMsg, setLogInSuccessMsg] = useState(false);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const isLoggedIn = useSelector(state => state.isLoggedIn);
+  const redirect = useSelector(state => state.redirect);
   const dispatch = useDispatch();
   // const handleLogInSuccessMsg = () => {
   //   setLogInSuccessMsg(true);
   //   setTimeout(setLogInSuccessMsg(false), 1000);
   // };
-
   const handleLogin = async e => {
     e.preventDefault();
     const user = {
@@ -29,22 +29,18 @@ const Login = () => {
       .then(res => {
         if (res.status === 200) {
           console.log("Login successful");
-
-          console.log(res.json());
+          // let user = res.json();
+          console.log(user);
+          console.log(res.headers.get("auth-token"));
           localStorage.setItem("auth-token", res.headers.get("auth-token"));
           dispatch(logIn());
+          dispatch(setUser(user.email));
         } else console.log("Login failed");
       })
-      // .then(res => res.json())
-      // .then(json => {
-      // localStorage.setItem("auth-token", res.headers.get("auth-token"));
-      //   console.log(json);
-      //   dispatch(logIn());
-      // })
       .catch(err => console.log(err));
   };
   return isLoggedIn ? (
-    <Redirect to="/shop" />
+    <Redirect to={redirect !== null ? `${redirect}` : "/shop"} />
   ) : (
     // <div id="loginWrap">
     //   Log in successful

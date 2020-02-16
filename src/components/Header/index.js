@@ -17,11 +17,13 @@ import NavItem from "../NavItem";
 import { useSelector } from "react-redux";
 import ShopMenuItem from "../ShopMenuItem";
 import ShopMenuToggle from "../ShopMenuToggle";
+import { CalculateCartCount } from "../../functions/CalculateCartCount";
 const Header = () => {
   const [isShopMenuOpen, setIsShopMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileShopMenuOpen, setIsMobileShopMenuOpen] = useState(false);
   const isLoggedIn = useSelector(state => state.isLoggedIn);
+
   const closeMenu = () => {
     setIsShopMenuOpen(false);
   };
@@ -30,10 +32,8 @@ const Header = () => {
     setIsMobileShopMenuOpen(false);
   };
   const cart = useSelector(state => state.cart);
-  let cartCount = 0;
-  for (let i = 0; i < cart.length; i++) {
-    cartCount += cart[i].quantity;
-  }
+
+  const cartCount = CalculateCartCount(cart);
   return (
     <div>
       <header id="header">
@@ -81,7 +81,7 @@ const Header = () => {
               to="/cart"
               content=""
               icon={faShoppingCart}
-              cart={cart.length > 0 ? cartCount : ""}
+              cart={cart.length > 0 && cartCount}
             />
           </ul>
           {isShopMenuOpen && (
@@ -136,7 +136,7 @@ const Header = () => {
             to="/cart"
             content=""
             icon={faShoppingCart}
-            cart={cart.length > 0 ? cartCount : ""}
+            cart={cart.length > 0 && cartCount}
           />
           <button
             id="mobileMenu"

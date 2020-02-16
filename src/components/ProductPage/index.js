@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 import StarsRating from "../StarsRating";
 import Review from "../Review";
 import "./productpage.css";
+
 const ProductPage = props => {
   const dispatch = useDispatch();
   // console.log(props.location.props);
+
   return (
     <div>
       <h5 className="productPath">
@@ -56,7 +58,6 @@ const ProductPage = props => {
       <div className="reviewsWrap">
         <h4>Reviews ({props.location.props.reviews.length})</h4>
         <br />
-        {/* <StarsRating rating={props.location.props.rating} /> */}
         <>
           {props.location.props.reviews.length > 0
             ? props.location.props.reviews.map(review => (

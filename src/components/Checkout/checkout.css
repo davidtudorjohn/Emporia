@@ -1,0 +1,77 @@
+#columnOne {
+  width: 100%;
+}
+
+#checkoutHeading {
+  letter-spacing: -0.03em;
+}
+
+#checkoutWrap {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 2em 7vw;
+}
+
+#columnTwo {
+  width: 100%;
+}
+
+#payHeading {
+  margin-bottom: 1em;
+}
+
+#placeOrder {
+  width: 100%;
+  padding: 1em 0em;
+  border: none;
+  background-color: slateblue;
+  color: white;
+  border-radius: 0.3em;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+#totals {
+  color: #393939;
+}
+
+#applyDiscount {
+  border: solid 1px slateblue;
+  padding: 0.3em 0.6em;
+  background-color: white;
+  color: slateblue;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  #checkoutWrap {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  #columnOne {
+    position: relative;
+    min-width: 40vw;
+    max-width: 50vw;
+    overflow: hidden;
+    padding-right: 2em;
+  }
+  #columnTwo {
+    position: relative;
+    min-width: 40vw;
+    max-width: 50vw;
+    border: solid 1px #bebebe60;
+    padding: 2em;
+  }
+}
+/*# sourceMappingURL=checkout.css.map */

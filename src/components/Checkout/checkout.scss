@@ -1,0 +1,67 @@
+#columnOne {
+  width: 100%;
+  //   padding: 0vh 7vw;
+  //   position: relative;
+  //   display: block;
+}
+#checkoutHeading {
+  letter-spacing: -0.03em;
+}
+#checkoutWrap {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2em 7vw;
+}
+
+#columnTwo {
+  width: 100%;
+  //   padding: 0vh 7vw;
+  //   margin-left: 1em;
+}
+#payHeading {
+  margin-bottom: 1em;
+}
+#placeOrder {
+  width: 100%;
+  padding: 1em 0em;
+  border: none;
+  background-color: slateblue;
+  color: white;
+  border-radius: 0.3em;
+  font-weight: 700;
+  font-size: 1em;
+}
+#totals {
+  color: #393939;
+}
+#applyDiscount {
+  border: solid 1px slateblue;
+  padding: 0.3em 0.6em;
+  background-color: white;
+  color: slateblue;
+  font-weight: 700;
+  //   margin-top: -3em;
+}
+@media screen and (min-width: 768px) {
+  #checkoutWrap {
+    flex-direction: row;
+  }
+  #columnOne {
+    // padding-left: 7vw;
+    position: relative;
+    min-width: 40vw;
+    max-width: 50vw;
+    overflow: hidden;
+    padding-right: 2em;
+  }
+  #columnTwo {
+    position: relative;
+    min-width: 40vw;
+    max-width: 50vw;
+    border: solid 1px #bebebe60;
+    padding: 2em;
+    // margin-right: 7vw;
+  }
+}

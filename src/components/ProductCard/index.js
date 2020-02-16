@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "../../actions";
 import { Link } from "react-router-dom";
 import StarsRating from "../StarsRating";
+import { CalculateRating } from "../../functions/CalculateRating";
 const ProductCard = props => {
   const dispatch = useDispatch();
   const product = {
@@ -16,17 +17,8 @@ const ProductCard = props => {
     rating: props.rating,
     reviews: props.reviews
   };
-  const calcRating = reviews => {
-    let ratingsTotal = 0;
-    let ratingsCount = 0;
-    for (let i = 0; i < reviews.length; i++) {
-      ratingsTotal += reviews[i].rating;
-      ratingsCount += 1;
-    }
-    let calculatedRating = ratingsTotal / ratingsCount;
-    return isNaN(calculatedRating) ? 0 : calculatedRating;
-  };
-  product.rating = calcRating(product.reviews);
+
+  product.rating = CalculateRating(product.reviews);
   return (
     <div className="productCard">
       <Link

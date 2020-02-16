@@ -1,0 +1,26 @@
+.inputWrap {
+  margin-bottom: 1.2em;
+}
+
+.inputField {
+  min-width: 100%;
+  padding: 0.6em 1em;
+  border: solid 1px #bebebe90;
+}
+
+.inputLabel {
+  color: #5a5a5a;
+  font-size: 0.9em;
+  font-weight: 700;
+}
+
+.required {
+  color: red;
+}
+
+@media screen and (min-width: 768px) {
+  .inputWrap {
+    max-width: 100%;
+  }
+}
+/*# sourceMappingURL=input.css.map */
