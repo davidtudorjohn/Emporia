@@ -1,14 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import Input from "../Input";
 import "./checkout.css";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CheckoutItem from "../CheckoutItem";
 import {
   CalculateSubtotal,
   CalculateTotal
 } from "../../functions/CalculateTotal";
+import { setRedirect } from "../../actions";
 const Checkout = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setRedirect(null));
+  }, []);
+
   const cart = useSelector(state => state.cart);
+  const redirect = useSelector(state => state.redirect);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -31,7 +40,7 @@ const Checkout = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [cvv, setCvv] = useState("");
   const [expiration, setExpiration] = useState("");
-
+  console.log(zipBilling);
   //   let subtotal = 0;
   //   for (let i = 0; i < cart.length; i++) {
   //     subtotal += cart[i].price * cart[i].quantity;
@@ -39,143 +48,206 @@ const Checkout = () => {
   //   let total = subtotal * 0.07 + subtotal;
   let subtotal = CalculateSubtotal(cart);
   let total = CalculateTotal(subtotal, 0.07);
-  const handleOrderSubmit = e => {
-    e.preventDefault();
-    alert(`Order Received`);
+
+  const handleBillingIsSame = () => {
+    setFirstNameBilling(`${firstName}`);
+    setLastNameBilling(lastName);
+    setAddressBilling(address);
+    setCityBilling(city);
+    setStateBilling(state);
+    setZipBilling(zip);
+    setPhoneBilling(phone);
+    setEmailBilling(email);
   };
 
-  return (
-    <div id="checkoutWrap">
-      <div id="columnOne">
-        <h1 id="checkoutHeading">Checkout</h1>
-        <br />
-        <h5>Shipping Details</h5>
-        <br />
+  const handleApplyDiscount = e => {
+    e.preventDefault();
+    alert("Discount applied");
+  };
 
-        <Input
-          onChange={e => setFirstName(e.target.value)}
-          label="First Name"
-          inputType="text"
-        />
-        <Input
-          onChange={e => setLastName(e.target.value)}
-          label="Last Name"
-          inputType="text"
-        />
-        <Input
-          onChange={e => setAddress(e.target.value)}
-          label="Street Address"
-          inputType="text"
-        />
-        <Input
-          onChange={e => setCity(e.target.value)}
-          label="Town/City"
-          inputType="text"
-        />
-        <Input
-          onChange={e => setState(e.target.value)}
-          label="State"
-          inputType="text"
-        />
-        <Input
-          onChange={e => setZip(e.target.value)}
-          label="ZIP"
-          inputType="text"
-        />
-        <Input
-          onChange={e => setPhone(e.target.value)}
-          label="Phone"
-          inputType="tel"
-        />
-        <Input
-          onChange={e => setEmail(e.target.value)}
-          label="Email"
-          inputType="text/email"
-        />
-        <br />
-        <h5>Billing Details</h5>
-        <br />
+  const handleOrderSubmit = async e => {
+    e.preventDefault();
+    const order = {
+      f_name: `${firstName}`,
+      l_name: `${lastName}`,
+      address: `${address}`,
+      city: `${city}`,
+      zip: `${zip}`,
+      state: `${state}`,
+      phone: `${phone}`,
+      email: `${email}`,
+      f_name_billing: `${firstNameBilling}`,
+      l_name_billing: `${lastNameBilling}`,
+      address_billing: `${addressBilling}`,
+      city_billing: `${cityBilling}`,
+      state_billing: `${stateBilling}`,
+      zip_billing: `${zipBilling}`,
+      phone_billing: `${phoneBilling}`,
+      email_billing: `${emailBilling}`
+    };
+    await fetch("http://localhost:5000/user/api/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(order)
+    })
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          dispatch(setRedirect("/order-confirmation"));
+        }
+      })
+      .catch(err => console.log(err));
+  };
 
-        <input
-          type="checkbox"
-          onChange={e => setIsBillingSame(!isBillingSame)}
-        />
-        <label> Billing information is the same as Shipping</label>
-        <br />
-        <br />
-        <Input
-          value={isBillingSame ? firstName : ""}
-          onChange={e => setFirstNameBilling(e.target.value)}
-          label="First Name"
-          inputType="text"
-        />
-        <Input
-          value={isBillingSame ? lastName : ""}
-          onChange={e => setLastNameBilling(e.target.value)}
-          label="Last Name"
-          inputType="text"
-        />
-        <Input
-          value={isBillingSame ? address : ""}
-          onChange={e => setAddressBilling(e.target.value)}
-          label="Street Address"
-          inputType="text"
-        />
-        <Input
-          value={isBillingSame ? city : ""}
-          onChange={e => setCityBilling(e.target.value)}
-          label="Town/City"
-          inputType="text"
-        />
-        <Input
-          value={isBillingSame ? state : ""}
-          onChange={e => setStateBilling(e.target.value)}
-          label="State"
-          inputType="text"
-        />
-        <Input value={isBillingSame ? zip : ""} label="ZIP" inputType="text" />
-        <Input
-          value={isBillingSame ? phone : ""}
-          onChange={e => setPhoneBilling(e.target.value)}
-          label="Phone"
-          inputType="tel"
-        />
-        <Input
-          value={isBillingSame ? email : ""}
-          onChange={e => setEmailBilling(e.target.value)}
-          label="Email"
-          inputType="text/email"
-        />
-      </div>
-      <div id="columnTwo">
-        <h5>Order Details</h5>
-        <br />
-        {cart.map(i => (
-          <CheckoutItem
-            key={i.name}
-            name={i.name}
-            price={i.price}
-            quantity={i.quantity}
+  return redirect ? (
+    <Redirect to={redirect} />
+  ) : (
+    <form onSubmit={handleOrderSubmit}>
+      <div id="checkoutWrap">
+        <div id="columnOne">
+          <h1 id="checkoutHeading">Checkout</h1>
+          <br />
+          <h5>Shipping Details</h5>
+          <br />
+
+          <Input
+            onChange={e => setFirstName(e.target.value)}
+            label="First Name"
+            inputType="text"
           />
-        ))}
-        <div id="totals">
+          <Input
+            onChange={e => setLastName(e.target.value)}
+            label="Last Name"
+            inputType="text"
+          />
+          <Input
+            onChange={e => setAddress(e.target.value)}
+            label="Street Address"
+            inputType="text"
+          />
+          <Input
+            onChange={e => setCity(e.target.value)}
+            label="Town/City"
+            inputType="text"
+          />
+          <Input
+            onChange={e => setState(e.target.value)}
+            label="State"
+            inputType="text"
+          />
+          <Input
+            onChange={e => setZip(e.target.value)}
+            label="ZIP"
+            inputType="text"
+          />
+          <Input
+            onChange={e => setPhone(e.target.value)}
+            label="Phone"
+            inputType="tel"
+          />
+          <Input
+            onChange={e => setEmail(e.target.value)}
+            label="Email"
+            inputType="text/email"
+          />
           <br />
-          <h5>Subtotal: ${subtotal}</h5>
+          <h5>Billing Details</h5>
           <br />
-          <h4>Total: ${total}</h4>
+
+          <input
+            type="checkbox"
+            // onChange={handleBillingIsSame}
+            onChange={e => setIsBillingSame(!isBillingSame)}
+          />
+          <label> Billing information is the same as Shipping</label>
+          <br />
           <br />
           <Input
-            onChange={e => setDiscountCode(e.target.value)}
-            type="text"
-            label="Discount Code"
-            notRequired={true}
+            // value={firstNameBilling}
+            onChange={e => setFirstNameBilling(e.target.value)}
+            label="First Name"
+            inputType="text"
           />
-          <button id="applyDiscount">Apply discount</button>
-          <br />
-          <br />
+          <Input
+            // value={isBillingSame ? lastName : ""}
+            onChange={e => setLastNameBilling(e.target.value)}
+            label="Last Name"
+            inputType="text"
+          />
+          <Input
+            // value={isBillingSame ? address : ""}
+            onChange={e => setAddressBilling(e.target.value)}
+            label="Street Address"
+            inputType="text"
+          />
+          <Input
+            // value={isBillingSame ? city : ""}
+            onChange={e => setCityBilling(e.target.value)}
+            label="Town/City"
+            inputType="text"
+          />
+          <Input
+            // value={isBillingSame ? state : ""}
+            onChange={e => setStateBilling(e.target.value)}
+            label="State"
+            inputType="text"
+          />
+          <Input
+            // value={isBillingSame ? zip : ""}
+            onChange={e => setZipBilling(e.target.value)}
+            label="ZIP"
+            inputType="text"
+          />
+          <Input
+            // value={isBillingSame ? phone : ""}
+            onChange={e => setPhoneBilling(e.target.value)}
+            label="Phone"
+            inputType="tel"
+          />
+          <Input
+            // value={isBillingSame ? email : ""}
+            onChange={e => setEmailBilling(e.target.value)}
+            label="Email"
+            inputType="text/email"
+          />
         </div>
+        <div id="columnTwo">
+          <h5>Order Details</h5>
+          <br />
+          {cart.map(i => (
+            <CheckoutItem
+              key={i.name}
+              name={i.name}
+              price={i.price}
+              quantity={i.quantity}
+            />
+          ))}
+          <div id="totals">
+            <br />
+            <h5>Subtotal: ${subtotal}</h5>
+            <br />
+            <h4>Total: ${total}</h4>
+            <br />
 
-        <form onSubmit={handleOrderSubmit}>
+            <Input
+              onChange={e => setDiscountCode(e.target.value)}
+              type="text"
+              label="Discount Code"
+              notRequired={true}
+            />
+            <button
+              onClick={handleApplyDiscount}
+              id="applyDiscount"
+              type="submit"
+              form="discountCodeForm"
+            >
+              Apply discount
+            </button>
+
+            <br />
+            <br />
+          </div>
+
           <h2 id="payHeading">Pay with Debit or Credit</h2>
           <Input
             onChange={e => setCardNumber(e.target.value)}
@@ -202,10 +274,11 @@ const Checkout = () => {
             type="submit"
             value="PLACE ORDER"
           ></input>
-        </form>
-        {/* <button id="placeOrder">PLACE ORDER</button> */}
+
+          {/* <button id="placeOrder">PLACE ORDER</button> */}
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 export default Checkout;

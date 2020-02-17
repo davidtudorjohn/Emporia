@@ -17,23 +17,6 @@ const HomePage = props => {
         dataCategory="vitamins"
         noSearch={true}
       />
-      {/* <div id="productList">
-        <ProductCard
-          image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwolper.com.au%2Fwp-content%2Fuploads%2F2017%2F10%2Fimage-placeholder.jpg&f=1&nofb=1"
-          name="Premium Vitamins"
-          price={17.99}
-        />
-        <ProductCard
-          image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwolper.com.au%2Fwp-content%2Fuploads%2F2017%2F10%2Fimage-placeholder.jpg&f=1&nofb=1"
-          name="Premium Vitamins"
-          price={17.99}
-        />
-        <ProductCard
-          image="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwolper.com.au%2Fwp-content%2Fuploads%2F2017%2F10%2Fimage-placeholder.jpg&f=1&nofb=1"
-          name="Premium Vitamins"
-          price={17.99}
-        />
-      </div> */}
     </>
   );
 };

@@ -25,6 +25,7 @@ import { useDispatch } from "react-redux";
 import { logIn, setUser, logOut } from "./actions";
 import ScrollToTop from "./components/ScrollToTop";
 import Checkout from "./components/Checkout";
+import OrderConfirmation from "./components/OrderConfirmation";
 function App() {
   const dispatch = useDispatch();
   // const isLoggedIn = useSelector(state => state.isLoggedIn);
@@ -35,7 +36,7 @@ function App() {
   useEffect(() => {
     async function verifyUser() {
       console.log("effect running");
-      await fetch("http://localhost:5000/api/user/verify", {
+      await fetch(`${process.env.REACT_APP_API_URL}/api/user/verify`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +52,7 @@ function App() {
         console.log(userId);
         if (res.status === 200) {
           dispatch(logIn());
-          dispatch(setUser(userId));
+          // dispatch(setUser(userId));
         }
       });
     }
@@ -86,6 +87,11 @@ function App() {
           <Route exact path="/shop/:id" component={ProductPage} />
           <Route exact path="/cart" component={CartPage} />
           <Route exact path="/checkout" component={Checkout} />
+          <Route
+            exact
+            path="/order-confirmation"
+            component={OrderConfirmation}
+          />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/privacy" component={PrivacyPage} />

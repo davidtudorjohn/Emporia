@@ -38,14 +38,16 @@ const Account = () => {
       </div>
       <h4>Settings</h4>
       <div id="settingsSection">
-        <h5>Email</h5>
-        <p>{user}</p>
-        <button>Edit email</button>
-        <h5>Password</h5>
+        <h5 className="accountSetting">Email</h5>
+        <p id="userEmail">{user}</p>
+        <button className="editBtn">Edit email</button>
+        <h5 className="accountSetting">Password</h5>
         {/* <p>{user}</p> */}
-        <button>Edit password</button>
+        <button className="editBtn">Edit password</button>
       </div>
-      <button onClick={handleLogOut}>Sign Out</button>
+      <button id="signOutBtn" onClick={handleLogOut}>
+        Sign Out
+      </button>
     </div>
   ) : (
     <Redirect to="/" />

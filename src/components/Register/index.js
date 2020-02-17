@@ -13,7 +13,7 @@ const Register = () => {
       password: `${password}`
     };
 
-    await fetch("http://localhost:5000/api/user/register", {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/user/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)

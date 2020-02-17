@@ -20,7 +20,7 @@ const Login = () => {
       email: `${email}`,
       password: `${password}`
     };
-    await fetch("http://localhost:5000/api/user/login", {
+    await fetch(`${process.env.REACT_APP_API_URL}/api/user/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user)
@@ -41,11 +41,6 @@ const Login = () => {
   return isLoggedIn ? (
     <Redirect to={redirect !== null ? `${redirect}` : "/shop"} />
   ) : (
-    // <div id="loginWrap">
-    //   Log in successful
-    //   <Link to="/shop">Shop now</Link>
-    // </div>
-    //
     <div id="loginWrap">
       <form id="loginForm" onSubmit={handleLogin}>
         <h2>Log In</h2>

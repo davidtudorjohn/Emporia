@@ -166,15 +166,6 @@ const Header = () => {
               />
               {isMobileShopMenuOpen && (
                 <div id="mobileShopMenuContent">
-                  {/* <ShopMenuItem
-                    onClick={closeMobileMenu}
-                    to="/shop/all-products"
-                    icon={faPrescriptionBottleAlt}
-                    content="All Products"
-                    mobile={true}
-                    allProducts={true}
-                  />
-                  <br /> */}
                   <ShopMenuItem
                     onClick={closeMobileMenu}
                     to="/shop/vitamins-supplements"
