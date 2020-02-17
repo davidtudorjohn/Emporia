@@ -22,8 +22,6 @@ const Account = () => {
         body: { _id: `${localStorage.getItem("_id")}` }
       }).then(res => {
         console.log(res);
-        console.log(`User Header: ${res.headers.get("user")}`);
-        // dispatch(setUser(res.headers.get("user")));
       });
     }
     fetchUserInfo();

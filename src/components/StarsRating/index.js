@@ -3,7 +3,6 @@ import "./starsrating.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faStarHalf } from "@fortawesome/free-solid-svg-icons";
 const StarsRating = props => {
-  //   console.log(props.rating);
   let rated = props.rating * 2 * 10;
   //   console.log(rated);
   return (

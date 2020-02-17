@@ -12,7 +12,6 @@ const Register = () => {
       email: `${email}`,
       password: `${password}`
     };
-
     await fetch(`${process.env.REACT_APP_API_URL}/api/user/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -27,8 +26,6 @@ const Register = () => {
         }
       })
       .catch(err => console.log(err));
-
-    // alert(`${name} ${email} ${password}`);
   };
   return (
     <div id="registerWrap">

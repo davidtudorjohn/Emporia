@@ -34,10 +34,7 @@ const ProductCard = props => {
         <img alt="" src={props.image} className="productImage"></img>
       </Link>
       <p className="productName">{props.name}</p>
-      <StarsRating
-        rating={product.rating}
-        // reviewsCount={props.reviews.length}
-      />
+      <StarsRating rating={product.rating} />
       <p className="productPrice">${props.price}</p>
       <button
         className="addToCart"
