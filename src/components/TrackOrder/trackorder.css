@@ -1,0 +1,28 @@
+#trackOrderWrap {
+  padding: 2em;
+  margin: 2em 7vw;
+  border: solid 1px #bebebe80;
+  min-height: 80vh;
+}
+
+#trackOrderForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#trackOrderInput {
+  padding: 0.6em 1.2em;
+}
+
+#trackOrderSubmit {
+  background-color: slateblue;
+  border: solid 2px slateblue;
+  color: white;
+  font-weight: 600;
+  padding: 0.6em 1.2em;
+}
+/*# sourceMappingURL=trackorder.css.map */

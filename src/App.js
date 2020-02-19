@@ -26,6 +26,8 @@ import { logIn, setUser, logOut } from "./actions";
 import ScrollToTop from "./components/ScrollToTop";
 import Checkout from "./components/Checkout";
 import OrderConfirmation from "./components/OrderConfirmation";
+import ContactUsPage from "./components/ContactUsPage";
+import TrackOrder from "./components/TrackOrder";
 function App() {
   const dispatch = useDispatch();
   // const isLoggedIn = useSelector(state => state.isLoggedIn);
@@ -96,6 +98,8 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/privacy" component={PrivacyPage} />
           <Route exact path="/terms" component={TermsPage} />
+          <Route exact path="/contact-us" component={ContactUsPage} />
+          <Route exact path="/track-my-order" component={TrackOrder} />
         </Switch>
         <Footer />
       </div>
