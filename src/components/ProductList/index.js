@@ -24,7 +24,7 @@ const ProductList = props => {
     e.preventDefault();
   };
   return (
-    <div>
+    <div className="productList">
       <h2 className="pageTitle">{props.pageTitle}</h2>
       {props.noSearch ? (
         ""

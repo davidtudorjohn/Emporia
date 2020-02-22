@@ -49,12 +49,14 @@ const Login = () => {
           onChange={e => setEmail(e.target.value)}
           type="text/email"
           placeholder="Email"
+          required={true}
         ></input>
         <input
           className="formInput"
           onChange={e => setPassword(e.target.value)}
           type="password"
           placeholder="Password"
+          required={true}
         ></input>
         <input id="loginBtn" type="submit" value="Log In"></input>
         <Link className="routerLink" id="orRegister" to="/register">
