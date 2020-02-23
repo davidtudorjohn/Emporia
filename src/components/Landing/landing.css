@@ -33,11 +33,11 @@
 
 #landingBtn {
   color: white;
-  background-color: slateblue;
-  border: solid 1px white;
-  border-radius: 0.3em;
-  padding: 0.6em 1.2em;
-  font-weight: 600;
+  background-color: #386fd4;
+  border: solid 1px #386fd4;
+  padding: 1em 3em;
+  font-weight: 700;
+  letter-spacing: -0.03em;
 }
 
 #landing > * {
@@ -50,7 +50,7 @@
   background-color: #3f3483;
   background: -webkit-gradient(linear, left top, right top, from(#3b0777), to(slateblue));
   background: linear-gradient(to right, #3b0777, slateblue);
-  opacity: 0.9;
+  opacity: 0.8;
   position: absolute;
   top: 0;
   left: 0;

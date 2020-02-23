@@ -31,16 +31,14 @@
 
 #emailListInput {
   padding: 0.6em 1.2em;
-  border: none;
+  border: solid 1px white;
 }
 
 #emailListSubmit {
   color: white;
   padding: 0.6em 1.2em;
-  border: solid 1px white;
-  border-radius: 0.3em;
-  background-color: #6a50ff;
+  border: solid 1px #386fd4;
+  background-color: #386fd4;
   font-weight: 600;
-  margin-left: 0.3em;
 }
 /*# sourceMappingURL=emaillist.css.map */

@@ -36,6 +36,27 @@
 #logoFooter {
   font-family: "Georgia";
   position: relative;
+  margin-top: 0.6em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#socialLinks {
+  margin-top: 0.3em;
+}
+
+.socialLink {
+  color: black;
+  font-size: 0.7em;
+  margin: 0em 0.3em;
 }
 
 @media screen and (min-width: 768px) {

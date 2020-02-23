@@ -40,7 +40,7 @@ const ProductCard = props => {
         className="addToCart"
         onClick={() => dispatch(addProduct(product))}
       >
-        Add to Cart
+        ADD TO CART
       </button>
     </div>
   );

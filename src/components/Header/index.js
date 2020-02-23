@@ -38,7 +38,7 @@ const Header = () => {
     <div>
       <header id="header">
         <h1 id="logoHeader">
-          <Link onClick={closeMenu} className="routerLink" to="/">
+          <Link onClick={closeMobileMenu} className="routerLink" to="/">
             Emporia
           </Link>
         </h1>
@@ -46,7 +46,7 @@ const Header = () => {
           <h5>
             Customer Support <FontAwesomeIcon id="phoneIcon" icon={faPhone} />{" "}
             <span>
-              <a href="tel:1-888-777-9999">1-888-777-9999</a>
+              <a href="tel:1-888-777-9999">1-888-EMPORIA</a>
             </span>
           </h5>
         </div>

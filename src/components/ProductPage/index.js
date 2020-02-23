@@ -47,7 +47,7 @@ const ProductPage = props => {
             className="addToCart"
             onClick={() => dispatch(addProduct(props.location.props))}
           >
-            Add to Cart
+            ADD TO CART
           </button>
           <h4>Description</h4>
           <br />

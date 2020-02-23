@@ -27,6 +27,19 @@
 #logoFooter {
   font-family: "Georgia";
   position: relative;
+  margin-top: 0.6em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#socialLinks {
+  margin-top: 0.3em;
+}
+.socialLink {
+  color: black;
+  font-size: 0.7em;
+  // margin-right: 1em;
+  margin: 0em 0.3em;
 }
 @media screen and (min-width: 768px) {
   #footerWrap {

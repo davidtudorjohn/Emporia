@@ -151,6 +151,21 @@
   top: 1em;
 }
 
+#cartPreview {
+  position: absolute;
+  z-index: 9;
+  max-width: 540px;
+  min-width: 540px;
+  display: inline-block;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 110px;
+  right: 0;
+  background-color: whitesmoke;
+}
+
 #closeMenuBtn {
   border: none;
   background: transparent;

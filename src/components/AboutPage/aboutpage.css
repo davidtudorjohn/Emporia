@@ -40,7 +40,7 @@
 }
 
 #aboutBanner > h1 {
-  font-size: 3.6em;
+  font-size: 3em;
   letter-spacing: -0.04em;
 }
 
@@ -78,6 +78,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+  #aboutBanner > h1 {
+    font-size: 3.6em;
   }
 }
 /*# sourceMappingURL=aboutpage.css.map */

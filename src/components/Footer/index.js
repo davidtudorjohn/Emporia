@@ -2,6 +2,12 @@ import React from "react";
 import NavItem from "../NavItem";
 import "./footer.css";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faYoutube
+} from "@fortawesome/free-brands-svg-icons";
 const Footer = () => (
   <div id="footerWrap">
     <div className="footerColumn">
@@ -34,6 +40,17 @@ const Footer = () => (
       <Link className="routerLink" to="/">
         Emporia
       </Link>
+      <div id="socialLinks">
+        <a href="#" className="socialLink">
+          <FontAwesomeIcon icon={faFacebook} />
+        </a>
+        <a href="#" className="socialLink">
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+        <a href="#" className="socialLink">
+          <FontAwesomeIcon icon={faYoutube} />
+        </a>
+      </div>
     </h1>
   </div>
 );

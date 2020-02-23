@@ -1,7 +1,7 @@
 #featuredWrap {
   padding: 2em 0em;
   min-height: 100vh;
-  width: 100vw;
+  max-width: 86vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 @media screen and (min-width: 768px) {
   #featuredWrap {
-    width: 90vw;
+    max-width: 86vw;
     flex-direction: row;
   }
 }
